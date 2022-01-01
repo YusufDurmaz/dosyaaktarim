@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="boost.css" >  
-<?php
+ <?php
 if(isset($_FILES['dosya'])){
 	   
 			 $hata = $_FILES['dosya']['error'];
@@ -26,23 +25,8 @@ if(isset($_FILES['dosya'])){
 
 											
 					 	if(!in_array($tip, $dosyaformati)) {
-						?>
-						<br><br><br><br><br><br><br>
-	<div class="alert alert-danger" role="alert">
-  <h4 class="alert-heading">İzin verilmiyor!</h4>
-
-  <p>İzin verilmeyen dosya tipi.</p>
-  <hr>
-  <p class="mb-0">Yanlızca türü png veya jpg olan dosyaları yükleyebilirsiniz </p>
-  
-</div>
-
-						
-						<?php	
-	header("refresh:4, url=index.php?islem=acikarttirmabaslat");						
-					 	} 
-					
-						else {
+							echo "İzin verilmeyen dosya tipi.";						
+					 	}else {
 						$dosya = $_FILES['dosya']['tmp_name'];
 						$olustur= mt_rand(0,256541);
 						move_uploaded_file($dosya, 'dosyalar/' . $olustur.".".$uzanti);
